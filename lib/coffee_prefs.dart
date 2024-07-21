@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
 
-class CoffeePrefs extends StatelessWidget {
+/*NOTES: You can convert to Stateless or Stateful widgets but highlighting over
+the classname and clicking the yellow lightbulb */
+class CoffeePrefs extends StatefulWidget {
   const CoffeePrefs({super.key});
+
+  @override
+  State<CoffeePrefs> createState() => _CoffeePrefsState();
+}
+
+class _CoffeePrefsState extends State<CoffeePrefs> {
+  void increasedStrength() {
+    //void because this func doesnt return anything
+    print("inc strength by 1");
+  }
+
+  void increasedSugars() {
+    //void because this func doesnt return anything
+    print("inc strength by 1");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +39,24 @@ class CoffeePrefs extends StatelessWidget {
             color: Colors.brown[100],
             colorBlendMode: BlendMode.multiply,
           ),
-          const SizedBox(width: 50)
+
+          /* NOTES: We use Expanded here with sizedbox for our Button 
+          because we want it to take up the rest of the available space.
+          Also cool, if you highlight a widget, you can click the lightbulb
+          to the left to "wrap with widget"  */
+          const Expanded(child: SizedBox()),
+          FilledButton(
+              /* NOTES: style: FilledButton.styleFrom is a convenience method
+              built in to easily style the button instead of overriding manually */
+              style: FilledButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.brown,
+              ),
+              /* NOTES: we dont invoke increasedStrength() because it will invoke them 
+              right when the code runs. we just reference it so it knows thats 
+              the function that needs to be invoked when pressed  */
+              onPressed: increasedStrength,
+              child: const Text("+"))
         ]),
         Row(children: [
           const Text("Sugars: "),
@@ -33,7 +67,14 @@ class CoffeePrefs extends StatelessWidget {
             color: Colors.brown[100],
             colorBlendMode: BlendMode.multiply,
           ),
-          const SizedBox(width: 50)
+          const Expanded(child: SizedBox()),
+          FilledButton(
+              style: FilledButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.brown,
+              ),
+              onPressed: increasedSugars,
+              child: const Text("+"))
         ]),
       ],
     );

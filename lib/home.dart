@@ -38,6 +38,24 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: const CoffeePrefs(),
           ),
+          /* NOTES: When working in flutter if you overflow the bounds of the
+          screen, unlike a webpage, you will get a yellow/black crosshatched  
+          warning. You have to be within the bounds of the screen. We can use
+          the expanded widget to do this. It works like flex items in css where
+          grows to take up all the space it has and restricts the child widget
+          to that maximum size as well*/
+
+          /* NOTES: The expanded widget takes up all available height and 
+          no more, then passes those constraints to its child. If it doesn't 
+          expand horizontally, use the fit property with BoxFit. Then we use 
+          alignment to start the image at the bottom and center of the image  */
+          Expanded(
+            child: Image.asset(
+              "assets/img/coffee_bg.jpg",
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.bottomCenter,
+            ),
+          )
         ],
       ),
     );
