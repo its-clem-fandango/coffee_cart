@@ -1,3 +1,4 @@
+import "package:coffee_card/coffee_prefs.dart";
 import "package:flutter/material.dart";
 
 /*NOTES: stl creates a stateless widget. Start all classes w/ capital  */
@@ -6,7 +7,9 @@ class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  /* NOTES: The context object is about the environment */
+  /* NOTES: The context object is about the environment. The Scaffold widget
+  provides basic visual structure like an app bar, body, floating action buttons
+  navigation drawers, bottom nav bars, and temporary pop ups */
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +36,7 @@ class Home extends StatelessWidget {
           Container(
             color: Colors.brown[100],
             padding: const EdgeInsets.all(20),
-            child: const Text("Coffee prefs."),
+            child: const CoffeePrefs(),
           ),
         ],
       ),

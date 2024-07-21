@@ -18,7 +18,7 @@ void main() {
   runApp(const MaterialApp(
 /* NOTES: Text widgets require material ancestors  such as a scaffold 
           to function correctly. You will see this in the docs */
-    home: Sandbox(),
+    home: Home(),
   ));
 }
 
@@ -36,9 +36,24 @@ class Sandbox extends StatelessWidget {
           backgroundColor: Colors.grey,
         ),
         body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-                height: 100, color: Colors.green, child: const Text("one")),
+              height: 100,
+              color: Colors.amber,
+              child: const Text("one"),
+            ),
+            Container(
+              height: 200,
+              color: Colors.green,
+              child: const Text("two"),
+            ),
+            Container(
+              height: 300,
+              color: Colors.purple,
+              child: const Text("three"),
+            ),
           ],
         ));
   }
